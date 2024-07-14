@@ -8,9 +8,6 @@ import os
 import random
 import requests
 
-# possible countries to label
-country_labels = ["Canada", "United States", "Japan", "Sweden", "France"]
-
 # Base url for google maps api
 base_url = "https://maps.googleapis.com/maps/api/streetview?"
 
