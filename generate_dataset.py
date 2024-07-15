@@ -17,9 +17,6 @@ base_dir = os.path.dirname(os.path.dirname(__name__))
 # map api key
 maps_api_key = open("api_key.txt", "r").read()
 
-# countries csv file
-# countries_csv = pd.read_csv("countries.csv")
-
 def generate_images():
     with open('countries.csv') as countries_csv:
         heading = next(countries_csv)
