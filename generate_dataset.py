@@ -17,6 +17,9 @@ base_dir = os.path.dirname(os.path.dirname(__name__))
 # map api key
 maps_api_key = open("api_key.txt", "r").read()
 
+# type of data, training or test
+data_type = "test"
+
 def generate_images():
     with open('countries.csv') as countries_csv:
         heading = next(countries_csv)
@@ -25,8 +28,12 @@ def generate_images():
             country_name = str(row[0])
             country_capital_lat = float(row[1])
             country_capital_lng = float(row[2])
-            for i in range(0, 20): # change accordingly to how many images you would like for each category
-                get_image(i, country_name, country_capital_lat, country_capital_lng)
+            if (data_type == "training"):
+                for i in range(0, 20): # change accordingly to how many images you would like for each category
+                    get_image(i, country_name, country_capital_lat, country_capital_lng)
+            else:
+                for i in range(0, 5):  # change accordingly to how many images you would like for each category
+                    get_image(i, country_name, country_capital_lat, country_capital_lng)
 
 # takes the latitude and longitude of a country's capital city and returns a streetview image from
 # a radius around the capital
