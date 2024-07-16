@@ -25,13 +25,13 @@ def generate_images():
             country_name = str(row[0])
             country_capital_lat = float(row[1])
             country_capital_lng = float(row[2])
-            for i in range(0, 5):
+            for i in range(0, 20): # change accordingly to how many images you would like for each category
                 get_image(i, country_name, country_capital_lat, country_capital_lng)
 
 # takes the latitude and longitude of a country's capital city and returns a streetview image from
 # a radius around the capital
 def get_image(id: int, country_name: str, capital_latitude: float, capital_longitude: float):
-    for _ in range(5): # try 5 different locations
+    for _ in range(50): # try 50 different locations
         random_lat_around_capital = random.random() * ((capital_latitude - 0.1) - (capital_latitude + 0.1)) + (
                     capital_latitude - 0.1)
         random_lng_around_capital = random.random() * ((capital_longitude - 0.1) - (capital_longitude + 0.1)) + (
