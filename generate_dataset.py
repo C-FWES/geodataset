@@ -55,7 +55,17 @@ def get_image(id: int, country_name: str, capital_latitude: float, capital_longi
             }
             image_response = requests.get(base_url, params=image_params)
             image_name = country_name + "_" + str(id) + ".jpg"
-            with open(image_name, "wb") as file:
+
+            # create a directory path
+            dir_path = os.path.join('images', country_name)
+
+            # create if it doesn't exist
+            os.makedirs(dir_path, exist_ok=True)
+
+            # concatenate
+            file_path = os.path.join(dir_path, image_name)
+
+            with open(file_path, "wb") as file:
                 file.write(image_response.content)
             image_response.close()
             # if image is retrieved break the loop
